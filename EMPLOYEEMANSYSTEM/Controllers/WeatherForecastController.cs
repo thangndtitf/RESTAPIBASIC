@@ -1,5 +1,7 @@
 ﻿using EMPLOYEEMANSYSTEM.ML;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace EMPLOYEEMANSYSTEM.Controllers;
 
@@ -13,12 +15,34 @@ public class WeatherForecastController : ControllerBase
         new Employee(){employeeID= 2, employeeName = "Trần NGuyễn Thảo Khanh", DOB = DateTime.Now, employeeNum= 162881},
 
     };
+    
+    private readonly IConfiguration configuration = new ConfigurationBuilder()
+    .AddInMemoryCollection().Build() ;
+
+    public WeatherForecastController(IConfiguration configuration)
+    {
+        this.configuration = configuration;
+    }
 
     [HttpGet]
-    public IEnumerable<Employee> getEmployee()
+    public int Index()
     {
-        return employees;
+        string connectionString = configuration.GetConnectionString("DefaultConnectionString");
+        SqlConnection connection = new SqlConnection(connectionString);
+        connection.Open();
+        SqlCommand cmd = new SqlCommand("select * from MD_ELEMENTS", connection);
+        
+        
+
+        return 1;
     }
+
+
+    //[HttpGet]
+    //public IEnumerable<Employee> getEmployee()
+    //{
+    //    return employees;
+    //}
 
     [HttpPost]
     public IEnumerable<Employee> addEmployee([FromBody] Employee emp)
