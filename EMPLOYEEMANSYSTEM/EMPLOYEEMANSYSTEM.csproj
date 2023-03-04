@@ -17,9 +17,11 @@
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="DBContext\" />
+    <None Remove="DAL\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ML\" />
     <Folder Include="DBContext\" />
+    <Folder Include="DAL\" />
   </ItemGroup>
 </Project>
