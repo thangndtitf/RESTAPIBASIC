@@ -7,15 +7,14 @@ namespace EMPLOYEEMANSYSTEM.DBContext
 	public class DbContextApi
 	{
 
-        private readonly IConfiguration configuration ;
-        public DbContextApi(IConfiguration configuration)
-        {
-            this.configuration = configuration;
-        }
+
+
+
+        private static readonly string connectionString = "Data Source=localhost; Database=ElementMan; User Id=sa; Password=Anhyeuna2627@";
 
         public SqlConnection getSqlConn()
         {
-            string connectionString = configuration.GetConnectionString("DefaultConnectionString");
+            
             SqlConnection connection = new SqlConnection(connectionString);
 
             return connection;

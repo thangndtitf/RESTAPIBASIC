@@ -18,10 +18,16 @@
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="DBContext\" />
     <None Remove="DAL\" />
+    <None Remove="BL\" />
+    <None Remove="Validate\" />
+    <None Remove="ML\ValidateML\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ML\" />
     <Folder Include="DBContext\" />
     <Folder Include="DAL\" />
+    <Folder Include="BL\" />
+    <Folder Include="Validate\" />
+    <Folder Include="ML\ValidateML\" />
   </ItemGroup>
 </Project>
