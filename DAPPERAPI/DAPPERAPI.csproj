@@ -15,5 +15,9 @@
   <ItemGroup>
     <None Remove="Dapper" />
     <None Remove="Microsoft.Data.SqlClient" />
+    <None Remove="ML\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ML\" />
   </ItemGroup>
 </Project>
