@@ -22,6 +22,7 @@ namespace EMPLOYEEMANSYSTEM.DBContext
 
         public bool connectionOpen(SqlConnection _con)
         {
+
             Boolean result = false;
 
             if(_con == null)
@@ -53,6 +54,8 @@ namespace EMPLOYEEMANSYSTEM.DBContext
 
             return result;
         }
+
+        
 
 
 

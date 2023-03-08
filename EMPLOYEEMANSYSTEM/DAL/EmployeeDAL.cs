@@ -25,8 +25,8 @@ namespace EMPLOYEEMANSYSTEM.DAL
             
             try
             {
-                
                 _conn.Open();
+                
                 //dbApi.connectionOpen(_conn);
                 SqlCommand _cmd = new SqlCommand("select el.ELEMENTID ,el.ELEMENTNAME ,el.DOB ,el.ELEMENTUSERNUMBER  " +
                 "from MD_ELEMENTS el\n where el.ELEMENTID = @elId", _conn);
@@ -43,9 +43,11 @@ namespace EMPLOYEEMANSYSTEM.DAL
 
                         if (strVal.validateNameUser(empName).isError == true)
                         {
-                            break;
                             Console.WriteLine(strVal.ToString());
+                            break;
+                            
                         }
+
 
                         emp.employeeID = empID;
                         emp.employeeName = empName;
