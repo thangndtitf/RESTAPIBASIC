@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using DAPPERAPI.DAL;
 using DAPPERAPI.ML;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -20,12 +21,36 @@ namespace DAPPERAPI.Controllers
             this._config = config;
         }
 
+        //[HttpGet]
+        //public async Task<ActionResult<List<Department>>> getAllDepartment()
+        //{
+        //    using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+        //    var department = await connection.QueryAsync<Department>("select * from MD_DEPARTMENTS");
+        //    return Ok(department);
+        //}
+        //[HttpGet]
+        //public  List<Department> getAllsDepartment()
+        //{
+        //    DepartmentDAL departmentDAL = new DepartmentDAL(_config);
+        //    return departmentDAL.getAllDepartment();
+        //}
+
+
+
         [HttpGet]
-        public async Task<ActionResult<List<Department>>> getAllDepartment()
+        public Department getDepartmentByID([FromBody] int departmentID)
         {
-            using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            var department = await connection.QueryAsync<Department>("select * from MD_DEPARTMENTS");
-            return Ok(department);
+            DepartmentDAL departmentDAL = new DepartmentDAL(_config);
+            if(departmentDAL.getDepartmentByID(departmentID) == null)
+            {
+                return null;
+            }
+            else
+            {
+                return departmentDAL.getDepartmentByID(departmentID);
+            }
+            
+
         }
 
     }
