@@ -49,10 +49,16 @@ namespace DAPPERAPI.Controllers
             {
                 return departmentDAL.getDepartmentByID(departmentID);
             }
-            
+         }
 
+        [HttpPost]
+        public Boolean insertNewDepartment([FromBody]Department newDepartment)
+        {
+            Boolean result = false;
+            DepartmentDAL departmentDAL = new DepartmentDAL(_config);
+            result = departmentDAL.insertNewDepartment(newDepartment);
+            return result;
         }
-
     }
 }
 
