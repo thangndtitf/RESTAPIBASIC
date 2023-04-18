@@ -21,7 +21,6 @@ namespace DAPPERAPI.DAL
 		// Hàm lấy danh sách Department
         public  List<Department> getAllDepartment()
 		{
-
             using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
 			List<Department> department = new List<Department>();
             try
